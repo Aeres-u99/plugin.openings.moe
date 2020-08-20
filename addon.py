@@ -62,12 +62,12 @@ def fetch_json():
     So my plan for now is to have a button that allows fetching on demand.
     """
     try:
-        cache = json.load(open("cache.json", 'r'))
+        cache = json.load(open("/tmp/cache.json", 'r'))
     except (IOError, ValueError):
         jsonlist = requests.get("http://openings.moe/api/list.php")
         cache = jsonlist.json()
         xbmc.log("--> fetched json", level=xbmc.LOGINFO)
-        with open("cache.json","w") as json_file:
+        with open("/tmp/cache.json","w") as json_file:
             json.dump(cache,json_file)
             xbmc.log("--> Saved!", level=xbmc.LOGINFO)
     return cache
@@ -87,11 +87,11 @@ def index():
 @plugin.route('/recache/')
 def force_recache():
     try:
-        os.listdir(".")
-        os.remove("./cache.json")
+        os.listdir("/tmp")
+        os.remove("/tmp/cache.json")
         xbmcgui.Dialog().ok("Force ReCache","ReCached Successfully")
     except:
-        os.listdir(".")
+        os.listdir("/tmp")
         print("Failed")
         xbmcgui.Dialog().ok("Force ReCache","ReCache Failed!","You can Manually remove it")
     return
