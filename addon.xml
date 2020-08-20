@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.video.openings.moe" name="openings.moe" version="0.5" provider-name="shiroi Akuma">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+    <import addon="script.module.xbmcswift2" version="2.4.0"/> 
+    <import addon="script.module.beautifulsoup4" version="4.3.1"/>
+    <import addon="script.module.requests" version="1.1.0"/> 
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="addon.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <platform>all</platform>
+    <language>English</language>
+    <summary>"A bare simple addon for streaming openings.moe on kodi, allows fetching the current stream and few random streams. Also allows searching for a particular opening or ending"</summary>
+    <description>"Back in April 2015, quad was bored and made a site that picked a random anime opening from a folder. He later put it on a web server and from there it just somehow took off. Now we serve thousands of high quality anime openings and endings. Quality over quantity is the game. - Quad (The guy who made the first version of the site), Streams quality ops and eds"</description>
+  </extension>
+</addon>
